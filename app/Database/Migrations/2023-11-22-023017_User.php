@@ -17,36 +17,39 @@ class User extends Migration
       'username' => [
         'type' => 'VARCHAR',
         'constraint' => 255,
+        'unique' => true,
       ],
       'email' => [
         'type' => 'VARCHAR',
         'constraint' => 255,
-        'null' => true
+        'null' => true,
+        'unique' => true,
       ],
       'password' => [
         'type' => 'VARCHAR',
         'constraint' => 255,
-        'null' => false
       ],
       'fullname' => [
         'type' => 'VARCHAR',
         'constraint' => 255,
-        'null' => false
       ],
       'address' => [
         'type' => 'VARCHAR',
         'constraint' => 255,
-        'null' => false
       ],
       'gender' => [
-        'type' => 'CHAR',
-        'constraint' => 1,
-        'null' => false
+        'type' => 'ENUM',
+        'constraint' => ['L', 'P'],
       ],
       'phone_number' => [
         'type' => 'INT',
         'constraint' => 15,
-        'null' => true
+        'null' => true,
+        'unique' => true,
+      ],
+      'is_admin' => [
+        'type' => 'bool',
+        'default' => false,
       ],
     ]);
     $this->forge->addPrimaryKey('user_id', 'pk_userid');

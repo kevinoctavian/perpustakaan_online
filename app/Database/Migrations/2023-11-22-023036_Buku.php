@@ -17,7 +17,7 @@ class Buku extends Migration
       'title' => [
         'type' => 'VARCHAR',
         'constraint' => 255,
-        'null' => false,
+        'unique' => true,
       ],
       'cover' => [
         'type' => 'VARCHAR',
