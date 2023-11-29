@@ -42,14 +42,26 @@ class User extends Migration
         'constraint' => ['L', 'P'],
       ],
       'phone_number' => [
-        'type' => 'INT',
+        'type' => 'VARCHAR',
         'constraint' => 15,
         'null' => true,
         'unique' => true,
       ],
-      'is_admin' => [
-        'type' => 'bool',
-        'default' => false,
+      'created_at' => [
+        'type' => 'datetime',
+      ],
+      'updated_at' => [
+        'type' => 'datetime',
+        'null' => true,
+      ],
+      'deleted_at' => [
+        'type' => 'datetime',
+        'null' => true,
+      ],
+      'role' => [
+        'type' => 'enum',
+        'constraint' => ['0', '1', '2'], // 0 = user, 1 = moderator, 2 = administrator
+        'default' => '0',
       ],
     ]);
     $this->forge->addPrimaryKey('user_id', 'pk_userid');
