@@ -34,6 +34,17 @@ class Buku extends Migration
         'constraint' => 255,
         'default' => 'anonymous',
       ],
+      'created_at' => [
+        'type' => 'datetime',
+      ],
+      'updated_at' => [
+        'type' => 'datetime',
+        'null' => true,
+      ],
+      'deleted_at' => [
+        'type' => 'datetime',
+        'null' => true,
+      ],
       'quantity' => [
         'type' => 'INT',
         'default' => 0,
