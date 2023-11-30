@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <?= session()->getFlashdata('error') ?>
   <form action="" method="post">
     <input style="padding: 10px 20px;" type="text" placeholder="type your username" name="username" />
     <input style="padding: 10px 20px;" type="password" placeholder="type your password" name="password" />

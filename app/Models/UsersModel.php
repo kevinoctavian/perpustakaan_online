@@ -20,6 +20,7 @@ class UsersModel extends Model
     'address',
     'gender',
     'phone_number',
+    'role',
   ];
 
   // Dates
