@@ -9,7 +9,7 @@ class UserAuth extends BaseController
 {
 	public function registerPage()
 	{
-		$request = request();
+		$request = \Config\Services::request();
 		if ($request->is('get')) return view('register_page');
 
 		$username = $request->getPost('username');
@@ -24,7 +24,7 @@ class UserAuth extends BaseController
 			'username' => 'required|max_length[255]',
 			'phonenumber' => 'required|max_length[15]',
 			'password' => 'required|max_length[255]|min_length[8]',
-			'gender' => 'required|max_length[1]',
+			//'gender' => 'required|max_length[1]',
 		];
 
 		$validation->setRules($rules);
@@ -42,7 +42,7 @@ class UserAuth extends BaseController
 					'email' => $email,
 					'password' => password_hash($password, PASSWORD_DEFAULT),
 					'fullname' => $username . ' ' . $email,
-					'gender' => $gender,
+					'gender' => 'L',
 					'phone_number' => $phonenumber,
 				]);
 
@@ -55,7 +55,7 @@ class UserAuth extends BaseController
 			}
 		} else {
 			session()->setFlashdata('error', 'Data yang diinputkan tidak valid');
-			// dd($validation->listErrors());
+			dd($validation->listErrors());
 		}
 
 		return redirect()->to(base_url('register'));
