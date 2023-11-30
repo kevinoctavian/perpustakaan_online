@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <?= session()->getFlashdata('error') ?>
   <form action="" method="post" style="display: flex; flex-direction: column; width: 60%;">
     <input style="padding: 10px 20px;" type="text" placeholder="type your username" name="username" />
     <input style="padding: 10px 20px;" type="email" placeholder="type your email" name="email" />
