@@ -12,7 +12,7 @@ class UserAuth extends BaseController
   public function registerPage()
   {
     $request = request();
-
+    
     if ($request->is('get')) return view('register_page');
 
     $username = $request->getPost('username');
