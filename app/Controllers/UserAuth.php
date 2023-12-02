@@ -7,16 +7,19 @@ use App\Models\UsersModel;
 
 class UserAuth extends BaseController
 {
+  protected $helpers = ['form'];
+
   public function registerPage()
   {
     $request = request();
+
     if ($request->is('get')) return view('register_page');
 
     $username = $request->getPost('username');
-    $email =  $request->getPost('email');
     $fullname =  $request->getPost('fullname');
     $phonenumber =  $request->getVar('phonenumber');
     $password = $request->getVar('password');
+    // $passwordconfirm = $request->getVar('passwordconfirm');
     $gender = $request->getVar('gender');
 
     $validation = \Config\Services::validation();
@@ -25,6 +28,7 @@ class UserAuth extends BaseController
       'username' => 'required|max_length[255]',
       'phonenumber' => 'required|max_length[15]',
       'password' => 'required|max_length[255]|min_length[8]',
+      'passwordconfirm' => 'required|matches[password]',
       'gender' => 'required',
     ];
     $validation->setRules($rules);
@@ -38,22 +42,30 @@ class UserAuth extends BaseController
         session()->setFlashdata('error', 'Username ' . $username . ' sudah dipakai orang lain');
       } else {
         $model = new UsersModel();
-        // dd([$phonenumber, intval($phonenumber)]);
-        $user_id = $model->insert([
-          'username' => $username,
-          'email' => $email,
-          'password' => password_hash($password, PASSWORD_DEFAULT),
-          'fullname' => $fullname,
-          'gender' => $gender,
-          'phone_number' => $phonenumber,
-        ]);
 
-        session()->set([
-          'user_id' => $user_id,
-          'logged_in' => true,
-        ]);
+        $hasPhoneNumber = $model->where(['phone_number' => $phonenumber])->first();
 
-        return redirect()->to(base_url());
+        if ($hasPhoneNumber && $phonenumber == $hasPhoneNumber['phone_number']) {
+          session()->setFlashdata('error', 'nomor telpon sudah dipakai orang lain');
+        } else {
+
+
+          $user_id = $model->insert([
+            'username' => $username,
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'fullname' => $fullname,
+            'gender' => $gender,
+            'phone_number' => $phonenumber,
+            'role' => 0,
+          ]);
+
+          session()->set([
+            'user_id' => $user_id,
+            'logged_in' => true,
+          ]);
+
+          return redirect()->to(base_url());
+        }
       }
     } else {
       session()->setFlashdata('error', 'Data yang diinputkan tidak valid');
@@ -62,7 +74,6 @@ class UserAuth extends BaseController
 
     session()->setFlashdata('current_input', [
       'username' => $username,
-      'email' => $email,
       'fullname' => $fullname,
       'gender' => $gender,
       'phone_number' => $phonenumber,
