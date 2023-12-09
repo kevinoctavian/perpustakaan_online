@@ -212,6 +212,11 @@ label:last-child span {
     border-radius: 0 .375em .375em 0;
 }*/
 
+h5 {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
 @media screen and (max-width: 575px) {
   .card {
     width: 100%;
