@@ -258,7 +258,7 @@
     </div>
 
     <div class="heroe">
-
+      
       <h1>Welcome to perpustakaan online <?= auth()->user() ? 'logged' : 'not login' ?></h1>
 
       <h2>The small framework with powerful features</h2>
