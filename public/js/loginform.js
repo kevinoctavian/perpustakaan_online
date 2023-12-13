@@ -1,3 +1,4 @@
+const email = document.getElementById('email');
 const username = document.getElementById('username');
 const fullName = document.getElementById('fullName');
 const phoneNumber = document.getElementById('phoneNumber');
@@ -13,8 +14,13 @@ form.addEventListener('input', checkForm);
 // Call checkForm on input events
 confirmPassword.addEventListener('input', checkConfirmPassword);
 
-// Call checkForm on page load to handle initial state
-// document.addEventListener('DOMContentLoaded', checkForm);
+// check phone number only number allowed
+phoneNumber.addEventListener('input', () => {
+  const regex = new RegExp(/\D/);
+  if (regex.test(phoneNumber.value)) {
+    phoneNumber.value = phoneNumber.value.replace(regex, '');
+  }
+});
 
 /**
  * 
@@ -32,6 +38,7 @@ function checkForm(e) {
    */
 
   const formIsFilled = 
+    email.value &&
     username.value &&
     fullName.value &&
     phoneNumber.value &&
@@ -40,7 +47,6 @@ function checkForm(e) {
 
     // If all checks pass, enable the register button
   toggleButton(formIsFilled);
-  console.log(formIsFilled ? 'is filled' : 'not filled');
 }
 
 function toggleButton(enable = true) {

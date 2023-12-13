@@ -31,7 +31,7 @@ class PeminjamanBuku extends Migration
     ]);
 
     $this->forge->addPrimaryKey('borrowing_id', 'pk_borrowingid');
-    $this->forge->addForeignKey('user_id', 'users', 'user_id', 'CASCADE', 'CASCADE', 'fk_userid');
+    $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE', 'fk_userid');
     $this->forge->addForeignKey('book_id', 'books', 'book_id', 'CASCADE', 'CASCADE', 'fk_bookid');
     $this->forge->createTable('peminjaman_buku', true);
   }
