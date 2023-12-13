@@ -34,27 +34,43 @@ if ($flash) {
         <img class="gambar-depan" src="/img/library.png">
       </div>
       <div class="card__content">
-        <?php if (session()->getFlashdata('error')) : ?>
-          <p class="error"><?= session()->getFlashdata('error') ?></p>
-        <?php endif; ?>
+        <?php if (session('error') !== null) : ?>
+          <div class="error" role="alert"><?= session('error') ?></div>
+        <?php elseif (session('errors') !== null) : ?>
+          <div class="error" role="alert">
+            <?php if (is_array(session('errors'))) : ?>
+              <?php foreach (session('errors') as $error) : ?>
+                <?= $error ?>
+                <br>
+              <?php endforeach ?>
+            <?php else : ?>
+              <?= session('errors') ?>
+            <?php endif ?>
+          </div>
+        <?php endif ?>
+
+        <?php if (session('message') !== null) : ?>
+          <div class="alert alert-success" role="alert"><?= session('message') ?></div>
+        <?php endif ?>
         <form method="post" action=""> <!-- Menambahkan onsubmit dan return false -->
-          <input required name="username" autocomplete="off" id="username" type="text" placeholder="Username" value="<?= $username ?>">
-          <input required name="fullname" type="text" id="fullName" placeholder="Nama Lengkap" value="<?= $fullname ?>">
-          <input required name="phonenumber" type="text" id="phoneNumber" placeholder="Nomor Handphone" value="<?= $phonenumber ?>">
+          <input required name="email" autocomplete="off" id="email" type="email" placeholder="email" value="<?= old('email') ?>">
+          <input required name="username" autocomplete="off" id="username" type="text" placeholder="Username" value="<?= old('username') ?>">
+          <input required name="fullname" type="text" id="fullName" placeholder="Nama Lengkap" value="<?= old('fullname') ?>">
+          <input required name="phone_number" type="text" id="phoneNumber" maxlength="15" placeholder="Nomor Handphone" value="<?= old('phone_number') ?>">
 
           <input required name="password" autocomplete="off" type="password" minlength="8" id="password" placeholder="Password">
-          <input required class="" name="passwordconfirm" autocomplete="off" type="password" minlength="8" id="confirmPassword" placeholder="Konfirmasi Password">
+          <input required class="" name="password_confirm" autocomplete="off" type="password" minlength="8" id="confirmPassword" placeholder="Konfirmasi Password">
           <p class="password__notmatch hidden">Password doesn't match</p>
 
           <div class="mydict">
             <h5 class="kelamin">Jenis kelamin</h5>
             <div>
               <label>
-                <input name="gender" type="radio" name="radio" <?= $gender == 'L' ? 'checked' : '' ?> value="L">
+                <input name="gender" type="radio" name="radio" <?= old('gender') == 'L' ? 'checked' : '' ?> value="L">
                 <span>Laki-laki</span>
               </label>
               <label>
-                <input name="gender" type="radio" name="radio" <?= $gender == 'P' ? 'checked' : '' ?> value="P">
+                <input name="gender" type="radio" name="radio" <?= old('gender') == 'P' ? 'checked' : '' ?> value="P">
                 <span>Perempuan</span>
               </label>
             </div>

@@ -1,14 +1,6 @@
-<?php
-$flash = session()->getFlashdata('current_input');
-
-$username = '';
-if ($flash) {
-  $username = $flash['username'] ?? '';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,11 +17,26 @@ if ($flash) {
         <img class="gambar-depan" src="/img/library.png">
       </div>
       <div class="card__content">
-        <?php if (session()->getFlashdata('error')) : ?>
-          <p class="error"><?= session()->getFlashdata('error') ?></p>
-        <?php endif; ?>
+        <?php if (session('error') !== null) : ?>
+          <div class="error" role="alert"><?= session('error') ?></div>
+        <?php elseif (session('errors') !== null) : ?>
+          <div class="error" role="alert">
+            <?php if (is_array(session('errors'))) : ?>
+              <?php foreach (session('errors') as $error) : ?>
+                <?= $error ?>
+                <br>
+              <?php endforeach ?>
+            <?php else : ?>
+              <?= session('errors') ?>
+            <?php endif ?>
+          </div>
+        <?php endif ?>
+
+        <?php if (session('message') !== null) : ?>
+          <div class="alert alert-success" role="alert"><?= session('message') ?></div>
+        <?php endif ?>
         <form action="" method="post">
-          <input requireed name="username" type="text" placeholder="Username" value="<?= $username ?>">
+          <input requireed name="username_or_email" type="text" placeholder="Username or Email" value="<?= old('username_or_email') ?>">
           <input requireed name="password" type="password" placeholder="Password">
           <button class="tombol-register" type="submit">Login</button>
         </form>
@@ -41,4 +48,5 @@ if ($flash) {
     </div>
   </div>
 </body>
+
 </html>
