@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Books;
 
 use App\Controllers\BaseController;
 
