@@ -22,15 +22,10 @@ $auth = config('Auth');
 
   <div class="flex">
 
-    <div class="image">
-      <img src="img/about-img.jpg" alt="">
-    </div>
-
     <div class="content">
       <h3>kelompok 3</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptatibus aut hic molestias, reiciendis natus fuga, cumque excepturi veniam ratione iure. Excepturi fugiat placeat iusto facere id officia assumenda temporibus?</p>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos enim minima ipsa dicta officia corporis ratione saepe sed adipisci?</p>
-      <a href="contact.php" class="btn">hubungi kami</a>
+      <p>Selamat datang di dunia bacaan yang tak terbatas di website kami, karya terbaru dari Kelompok III yang penuh semangat! Dengan bangga kami mempersembahkan platform online inovatif ini, didedikasikan untuk memenuhi hasrat literasi dan menginspirasi kegemaran membaca di kalangan semua kalangan.</p>
+      <p>Kami berkomitmen untuk mendukung pengembangan literasi di semua kalangan. Melalui inisiatif kami, kami menyediakan akses gratis ke sumber daya literasi, memfasilitasi program membaca di sekolah-sekolah, dan berkolaborasi dengan penulis lokal untuk menciptakan konten yang relevan dan mendidik.</p>
     </div>
 
   </div>
@@ -38,17 +33,14 @@ $auth = config('Auth');
 </section>
 <section class="authors">
 
-  <h1 class="title">greate authors</h1>
+  <h1 class="title">Autor</h1>
 
   <div class="box-container">
 
     <div class="box">
       <img src="img/RZA_9831.JPG" alt="">
       <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
+        <a href="https://www.instagram.com/1bbnuuu/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="fab fa-instagram"></a>
       </div>
       <h3>Ibnu Rofik</h3>
     </div>
@@ -56,10 +48,7 @@ $auth = config('Auth');
     <div class="box">
       <img src="img/AmbilLampiran.jpeg" alt="">
       <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
+        <a href="https://www.instagram.com/kevin_octavian_/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="fab fa-instagram"></a>
       </div>
       <h3>Kevin Oktavian V.</h3>
     </div>
@@ -67,45 +56,33 @@ $auth = config('Auth');
     <div class="box">
       <img src="img/Picsart_22-08-25_20-12-26-260.jpg" alt="">
       <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
         <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
       </div>
       <h3>Stevensensius</h3>
     </div>
 
     <div class="box">
-      <img src="img/author-4.jpg" alt="">
+      <img src="img/ryan.png" alt="">
       <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
+        <a href="https://www.instagram.com/rynach_/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="></a>
       </div>
-      <h3>john deo</h3>
+      <h3>Ryan Achmad</h3>
     </div>
 
     <div class="box">
-      <img src="img/author-5.jpg" alt="">
+      <img src="img/nando.JPG" alt="">
       <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
+        <a href="https://www.instagram.com/justpassed_around/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="fab fa-instagram"></a>
       </div>
-      <h3>john deo</h3>
+      <h3>Fernando Dayaduta</h3>
     </div>
 
     <div class="box">
-      <img src="img/author-6.jpg" alt="">
+      <img src="img/abel.jpg" alt="">
       <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
+        <a href="https://www.instagram.com/agrv7_/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="fab fa-instagram"></a>
       </div>
-      <h3>john deo</h3>
+      <h3>Agriva Abel P.</h3>
     </div>
 
   </div>
