@@ -25,11 +25,10 @@
       <a href="/admin" class="logo">Admin<span>Panel</span></a>
 
       <nav class="navbar">
-        <a href="/admin">home</a>
-        <a href="/admin/products">products</a>
-        <a href="/admin/orders">orders</a>
-        <a href="/admin/users">users</a>
-        <a href="/admin/contacts">messages</a>
+        <a href="/admin">Home</a>
+        <a href="/admin/users">Users</a>
+        <a href="/admin/books">Books</a>
+        <a href="/admin/recap">User Borrow</a>
       </nav>
 
       <div class="icons">
@@ -38,7 +37,7 @@
       </div>
 
       <div class="account-box">
-        <p>username : <span><?= isset($username) ? $username : '' ?></span></p>
+        <p>username : <?= auth()->user()->username ?></span></p>
         <a href="/logout" class="delete-btn">logout</a>
       </div>
 

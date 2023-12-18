@@ -189,6 +189,20 @@ a:hover {
   color: #ffffff;
 }
 
+.remember__me {
+  display: flex;
+  align-items: center;
+}
+.remember__me input[type='checkbox'] 
+{
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+.remember__me label {
+  font-size: 1rem;
+}
+
 label span {
   display: block;
   font-size: 0.9rem;

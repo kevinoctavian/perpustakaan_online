@@ -53,9 +53,55 @@ section{
    padding:3rem 2rem;
 }
 
-.title{
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 1.8rem;
+  text-wrap: nowrap;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+tr.active {
+  background-color: #bc92ce;
+  /* color: #ccc; */
+}
+
+tbody tr:hover {
+  background-color: var(--light-color);
+  color: #eee;
+}
+
+td:nth-child(4) {
+  width: 25%;
+}
+
+td.action_table {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title h1{
    text-align: center;
-   margin-bottom: 2rem;
+   /* margin-bottom: 2rem; */
    text-transform: uppercase;
    color:var(--black);
    font-size: 4rem;
@@ -104,7 +150,7 @@ section{
 .delete-btn,
 .white-btn{
    display: inline-block;
-   margin-top: 1rem;
+   /* margin-top: 1rem; */
    padding:1rem 3rem;
    cursor: pointer;
    color:var(--white);
@@ -253,12 +299,12 @@ section{
 }
 
 .dashboard .box-container .box{
-   border-radius: .5rem;
-   padding:2rem;
-   background-color: var(--white);
-   box-shadow: var(--box-shadow);
-   border:var(--border);
-   text-align: center;
+  border-radius: .5rem;
+  padding:2rem;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border:var(--border);
+  text-align: center;
 }
 
 .dashboard .box-container .box h3{
@@ -426,13 +472,9 @@ section{
 }
 
 .users .box-container{
-   display: grid;
-   grid-template-columns: repeat(auto-fit, 30rem);
-   justify-content: center;
-   gap:1.5rem;
-   max-width: 1200px;
-   margin:0 auto;
-   align-items: flex-start;
+  width: 100%;
+  overflow-x: auto;
+
 }
 
 .users .box-container .box{
@@ -442,6 +484,7 @@ section{
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
    text-align: center;
+  height: 100%;
 }
 
 .users .box-container .box p{
@@ -491,25 +534,6 @@ section{
 .messages .box-container .box .delete-btn{
    margin-top: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* media queries  */
 

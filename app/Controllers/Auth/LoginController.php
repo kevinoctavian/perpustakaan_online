@@ -32,7 +32,7 @@ class LoginController extends ShieldLogin
       $this->request->getPost('username_or_email'),
       FILTER_VALIDATE_EMAIL
     ) ? 'email' : 'username';
-    dd($username_or_email);
+    // dd($username_or_email);
     $credentials[$username_or_email] = $this->request->getPost('username_or_email');
     $credentials['password'] = $this->request->getPost('password');
     $remember                = (bool) $this->request->getPost('remember');

@@ -17,6 +17,8 @@ class UserController extends BaseController
 
     foreach ($provider->findAll() as $key => $value) {
       $user = $value->toArray();
+
+      $user['current_user'] = $user['id'] == auth()->user()->id;
       $data['all_users'][$key] = $user;
     }
 

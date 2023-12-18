@@ -38,6 +38,10 @@
         <form action="" method="post">
           <input requireed name="username_or_email" type="text" placeholder="Username or Email" value="<?= old('username_or_email') ?>">
           <input requireed name="password" type="password" placeholder="Password">
+          <div class="remember__me">
+            <input requireed name="remember" type="checkbox" id="rememberme">
+            <label for="rememberme">Remember Me</label>
+          </div>
           <button class="tombol-register" type="submit">Login</button>
         </form>
         <div class="switch">

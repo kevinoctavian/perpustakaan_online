@@ -27,7 +27,13 @@
           <a href="#" class="fab fa-instagram"></a>
           <a href="#" class="fab fa-linkedin"></a>
         </div>
-        <p> new <a href="/login">login</a> | <a href="/register">register</a> </p>
+        <?php if (auth()->loggedIn()) { ?>
+          <div class="icons">
+            <div id="user-btn" class="fas fa-user"></div>
+          </div>
+        <?php } else { ?>
+          <p> new <a href="/login">login</a> | <a href="/register">register</a> </p>
+        <?php }; ?>
       </div>
     </div>
 
@@ -45,14 +51,12 @@
         <div class="icons">
           <div id="menu-btn" class="fas fa-bars"></div>
           <a href="search_page" class="fas fa-search"></a>
-          <div id="user-btn" class="fas fa-user"></div>
-          <a href="cart"> <i class="fas fa-shopping-cart"></i> <span>()</span> </a>
+          <a href="borrow_book"><i class="fa-solid fa-book"></i></a>
         </div>
 
         <div class="user-box">
-          <p>username : <span></span></p>
-          <p>email : <span></span></p>
-          <a href="logout.php" class="delete-btn">logout</a>
+          <p><a href="profile/<?= auth()->id() ?>">My Profile</a></p>
+          <a href="logout" class="delete-btn">logout</a>
         </div>
       </div>
     </div>
@@ -69,26 +73,22 @@
 
       <div class="box">
         <h3>quick links</h3>
-        <a href="home.php">home</a>
-        <a href="about.php">about</a>
-        <a href="shop.php">shop</a>
-        <a href="contact.php">contact</a>
+        <a href="/">home</a>
+        <a href="about">about</a>
+        <a href="books">Books</a>
+        <a href="contact">contact</a>
       </div>
 
       <div class="box">
         <h3>extra links</h3>
-        <a href="login.php">login</a>
-        <a href="register.php">register</a>
-        <a href="cart.php">cart</a>
-        <a href="orders.php">orders</a>
+        <a href="login">login</a>
+        <a href="register">register</a>
       </div>
 
       <div class="box">
         <h3>contact info</h3>
-        <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
-        <p> <i class="fas fa-phone"></i> +111-222-3333 </p>
-        <p> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </p>
-        <p> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </p>
+        <p> <i class="fas fa-envelope"></i> perpolsupport@gmail.com </p>
+        <p> <i class="fas fa-map-marker-alt"></i> Palangkaraya, indonesia - +62 </p>
       </div>
 
       <div class="box">
@@ -105,6 +105,8 @@
 
   </section>
 
+  <!-- custom js file link  -->
+  <script src="js/script.js"></script>
   <?= $this->renderSection('pageScripts') ?>
 
 </body>

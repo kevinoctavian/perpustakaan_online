@@ -29,5 +29,6 @@ $routes->group(
   static function (RouteCollection $routes) {
     $routes->get('/', 'AdminController::index');
     $routes->get('users', 'UserController::index');
+    $routes->get('books', 'BookController::index');
   }
 );

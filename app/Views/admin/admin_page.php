@@ -16,7 +16,10 @@ $auth = config('Auth');
 
 <section class="dashboard">
 
-  <h1 class="title">dashboard</h1>
+  <div class="title">
+    <h1>Dashboard</h1>
+    <!-- <a class="btn" href="#">Add User</a> -->
+  </div>
 
   <div class="box-container">
 

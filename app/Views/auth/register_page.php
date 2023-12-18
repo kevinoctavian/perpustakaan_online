@@ -1,27 +1,10 @@
-<?php
-
-$flash = session()->getFlashdata('current_input');
-
-$username = '';
-$fullname =  '';
-$gender = 'L';
-$phonenumber = '';
-
-if ($flash) {
-  $username = $flash['username'] ?? '';
-  $fullname =  $flash['fullname'] ?? '';
-  $gender = $flash['gender'] ?? '';
-  $phonenumber = $flash['phone_number'] ?? '';
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
   <title>Login Perpustakaan Online</title>
   <link rel="stylesheet" href="/css/loginform.css">
 </head>

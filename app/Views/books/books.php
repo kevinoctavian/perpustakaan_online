@@ -22,7 +22,7 @@ $auth = config('Auth');
   <h1 class="title">buku-buku</h1>
 
   <div class="box-container">
-    <form action="" method="post" class="box">
+    <!-- <form action="" method="post" class="box">
       <img class="image" src="uploaded_img/" alt="">
       <div class="name"></div>
       <input type="number" min="1" name="product_quantity" value="1" class="qty">
@@ -30,7 +30,16 @@ $auth = config('Auth');
       <input type="hidden" name="product_price" value="">
       <input type="hidden" name="product_image" value="">
       <input type="submit" value="simpan" name="tambahkan" class="btn">
-    </form>
+    </form> -->
+    <?php foreach ($books as $key) : ?>
+      <div class="box">
+        <div class="image">
+          <img src="<?= base_url($key['cover']) ?>" alt="">
+        </div>
+        <div class="name"><?= $key['title'] ?></div>
+        <div class="price"><?= $key['quantity'] ?></div>
+      </div>
+    <?php endforeach; ?>
   </div>
 
 </section>
