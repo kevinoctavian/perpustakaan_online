@@ -10,6 +10,8 @@ $routes->get('books', 'BooksController::index', ['namespace' => '\App\Controller
 $routes->get('about', 'AboutController::index');
 $routes->get('contact', 'ContactController::index');
 
+$routes->get('profile', 'ProfileController::index');
+
 service('auth')->routes($routes, ['except' => ['login', 'register']]);
 
 /**

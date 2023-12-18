@@ -55,7 +55,7 @@
         </div>
 
         <div class="user-box">
-          <p><a href="profile/<?= auth()->id() ?>">My Profile</a></p>
+          <p><a href="profile">My Profile</a></p>
           <a href="logout" class="delete-btn">logout</a>
         </div>
       </div>
