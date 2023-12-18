@@ -24,45 +24,21 @@ $auth = config('Auth');
   <div class="box-container">
 
     <div class="box">
-
-      <h3>$/-</h3>
-      <p>total pendings</p>
+      <h3><?= $user_count ?></h3>
+      <p>Total Users</p>
     </div>
 
     <div class="box">
-      <h3>$/-</h3>
-      <p>completed payments</p>
+      <h3><?= $book_count ?></h3>
+      <p>Total Books</p>
     </div>
 
-    <div class="box">
-      <h3></h3>
-      <p>order placed</p>
-    </div>
 
     <div class="box">
-      <h3></h3>
-      <p>products added</p>
+      <h3>0</h3>
+      <p>Total Books Borrowed</p>
     </div>
 
-    <div class="box">
-      <h3></h3>
-      <p>normal users</p>
-    </div>
-
-    <div class="box">
-      <h3></h3>
-      <p>admin users</p>
-    </div>
-
-    <div class="box">
-      <h3></h3>
-      <p>total accounts</p>
-    </div>
-
-    <div class="box">
-      <h3></h3>
-      <p>new messages</p>
-    </div>
 
   </div>
 

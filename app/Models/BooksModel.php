@@ -18,6 +18,9 @@ class BooksModel extends Model
     'publisher',
     'author',
     'quantity',
+    'created_at',
+    'updated_at',
+    'deleted_at',
   ];
 
   // Dates

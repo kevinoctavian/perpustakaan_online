@@ -36,7 +36,7 @@ jangan lupa untuk ubah env menjadi .env dan masukan username password untuk data
 sebelum migrate database pastikan dulu mysql yang ada di xampp itu hidup baru kamu bisa menjalankan
 
 ```bash
-php spark migrate -all
+php spark migrate -all && php spark db:seed BooksSeeder
 ```
 
 jika `php spark migrate` error pastikan database dengan nama perpustakaan sudah dibuat,atau jika database perpustakaan sudah ada maka hapus terlebih dahulu semua table didalamnya

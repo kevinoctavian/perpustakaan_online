@@ -25,7 +25,8 @@
       <a href="/admin" class="logo">Admin<span>Panel</span></a>
 
       <nav class="navbar">
-        <a href="/admin">Home</a>
+        <a href="/">Back to Home</a>
+        <a href="/admin">Admin</a>
         <a href="/admin/users">Users</a>
         <a href="/admin/books">Books</a>
         <a href="/admin/recap">User Borrow</a>
