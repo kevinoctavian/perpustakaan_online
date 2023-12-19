@@ -25,7 +25,11 @@ class Filters extends BaseConfig
     'honeypot'      => Honeypot::class,
     'invalidchars'  => InvalidChars::class,
     'secureheaders' => SecureHeaders::class,
-    'auth'          => \App\Filters\Auth::class,
+    'session'       => \CodeIgniter\Shield\Filters\SessionAuth::class,
+    'auth-rates'    => \CodeIgniter\Shield\Filters\AuthRates::class,
+    'group'         => \CodeIgniter\Shield\Filters\GroupFilter::class,
+    'permission'    => \CodeIgniter\Shield\Filters\PermissionFilter::class,
+    'cors'          => \App\Filters\Cors::class
   ];
 
   /**
@@ -37,7 +41,7 @@ class Filters extends BaseConfig
    */
   public array $globals = [
     'before' => [
-      // 'honeypot',
+      'cors',
       // 'csrf',
       // 'invalidchars',
     ],

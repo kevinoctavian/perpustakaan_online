@@ -100,7 +100,7 @@ section{
 .delete-btn,
 .white-btn{
    display: inline-block;
-   margin-top: 1rem;
+   /* margin-top: 1rem; */
    padding:1rem 3rem;
    cursor: pointer;
    color:var(--white);
@@ -330,25 +330,18 @@ section{
 	flex-direction: column;
 }
 
-.header .header-2 .flex .user-box p{
-   font-size: 2rem;
-   color:var(--light-color);
-   margin-bottom: 1.5rem;
+.header .header-2 .flex .user-box a{
+  font-size: 2rem;
+	color: var(--white);
+  margin-bottom: 1.5rem;
 }
-.header .header-2 .flex .user-box p a{
-	color:var(--light-color);
-}
-.header .header-2 .flex .user-box p:hover a{
-   color:var(--purple);
+.header .header-2 .flex .user-box a:hover{
+   color:var(--light-white);
 	 text-decoration: underline;
 }
 
-.header .header-2 .flex .user-box p span{
-   color:var(--purple);
-}
-
 .header .header-2 .flex .user-box .delete-btn{
-   margin-top: 0;
+   margin: 0;
 }
 
 .home{
@@ -391,19 +384,25 @@ section{
 
 .products .box-container .box{
    border-radius: .5rem;
+   height: 100%;
    background-color: var(--white);
    box-shadow: var(--box-shadow);
-   padding:2rem;
+   padding:1.4rem;
    text-align: center;
    border:var(--border);
    position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
-.products .box-container .box .image{
+.products .box-container .box .image {
   width: 100%;
 }
 .products .box-container .box .image img{
   width: 100%;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.24);
+  border-radius: 15px;
 }
 
 .products .box-container .box .name{
@@ -429,6 +428,31 @@ section{
    font-size: 2.5rem;
    color:var(--white);
    background-color: var(--red);
+}
+
+.products .box-container .box .details {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+.products .box-container .box .details p {
+  font-size: 1.4rem;
+  width: 50%;
+  text-align: center;
+}
+
+.products .box-container .box .buttons {
+  margin-top: 12px;
+}
+
+.products .box-container .box .time {
+  width: 100%;
+  margin: 14px 0;
+}
+.products .box-container .box .time p {
+  font-size: 1.3rem;  
+  color: var(--light-color);
+  text-align: right;
 }
 
 .about .flex{

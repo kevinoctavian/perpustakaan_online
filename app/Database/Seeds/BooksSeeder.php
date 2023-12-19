@@ -3,6 +3,7 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use CodeIgniter\I18n\Time;
 
 class BooksSeeder extends Seeder
 {
@@ -15,6 +16,7 @@ class BooksSeeder extends Seeder
         'publisher' => 'ibnu rofik',
         'author'    => 'Perpustakaan Online',
         'quantity'  => random_int(1, 100),
+        'created_at' => Time::now(),
       ],
       [
         'title'     => 'Be Well Bee',
@@ -22,6 +24,7 @@ class BooksSeeder extends Seeder
         'publisher' => 'Kevin Octavian',
         'author'    => 'Perpustakaan Online',
         'quantity'  => random_int(1, 100),
+        'created_at' => Time::now(),
       ],
       [
         'title'     => 'Boring Girls a Novel',
@@ -29,6 +32,7 @@ class BooksSeeder extends Seeder
         'publisher' => 'Ryan Achmad antama',
         'author'    => 'Perpustakaan Online',
         'quantity'  => random_int(1, 100),
+        'created_at' => Time::now(),
       ],
       [
         'title'     => 'Clever Lands',
@@ -36,6 +40,7 @@ class BooksSeeder extends Seeder
         'publisher' => 'Fernando',
         'author'    => 'Perpustakaan Online',
         'quantity'  => random_int(1, 100),
+        'created_at' => Time::now(),
       ],
       [
         'title'     => 'Darknet',
@@ -43,6 +48,7 @@ class BooksSeeder extends Seeder
         'publisher' => 'Abel',
         'author'    => 'Perpustakaan Online',
         'quantity'  => random_int(1, 100),
+        'created_at' => Time::now()
       ],
       [
         'title'     => 'Economic',
@@ -50,6 +56,7 @@ class BooksSeeder extends Seeder
         'publisher' => 'Epen ',
         'author'    => 'Perpustakaan Online',
         'quantity'  => random_int(1, 100),
+        'created_at' => Time::now(),
       ],
     ];
 

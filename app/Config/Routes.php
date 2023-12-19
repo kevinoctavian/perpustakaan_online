@@ -6,9 +6,17 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('books', 'BooksController::index', ['namespace' => '\App\Controllers\Books']);
 $routes->get('about', 'AboutController::index');
 $routes->get('contact', 'ContactController::index');
+$routes->get('search', 'SearchController::index');
+
+$routes->group(
+  'books',
+  ['namespace' => '\App\Controllers\Books'],
+  static function (RouteCollection $routes) {
+    $routes->get('/', 'BooksController::index');
+  }
+);
 
 $routes->get('profile', 'ProfileController::index');
 
@@ -17,20 +25,26 @@ service('auth')->routes($routes, ['except' => ['login', 'register']]);
 /**
  * authtentication and autozion routes
  */
-$routes->get('register', 'RegisterController::registerView', ['namespace' => '\App\Controllers\Auth']);
-$routes->post('register', 'RegisterController::postRegister', ['namespace' => '\App\Controllers\Auth']);
-$routes->get('login', 'LoginController::loginView', ['namespace' => '\App\Controllers\Auth']);
-$routes->post('login', 'LoginController::postLogin', ['namespace' => '\App\Controllers\Auth']);
 
-/**
- * Admin page routes
- */
+$routes->group(
+  '',
+  ['namespace' => '\App\Controllers\Auth'],
+  static function (RouteCollection $routes) {
+    $routes->get('register', 'RegisterController::registerView');
+    $routes->post('register', 'RegisterController::postRegister');
+
+    $routes->get('login', 'LoginController::loginView');
+    $routes->post('login', 'LoginController::postLogin');
+  }
+);
+/** Admin page routes */
 $routes->group(
   'admin',
-  ['namespace' => '\App\Controllers\Admin', 'filter' => 'session'],
+  ['namespace' => '\App\Controllers\Admin', 'filter' => 'group:superadmin,admin,developer'],
   static function (RouteCollection $routes) {
     $routes->get('/', 'AdminController::index');
-    $routes->get('users', 'UserController::index');
-    $routes->get('books', 'BookController::index');
+
+    $routes->resource('users');
+    $routes->resource('books');
   }
 );

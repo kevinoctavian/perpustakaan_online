@@ -1,3 +1,12 @@
+<?php
+$user = auth()->user();
+$isAdmin = $user->inGroup(
+  'superadmin',
+  'admin',
+  'developer'
+);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,12 +59,15 @@
 
         <div class="icons">
           <div id="menu-btn" class="fas fa-bars"></div>
-          <a href="search_page" class="fas fa-search"></a>
+          <a href="search" class="fas fa-search"></a>
           <a href="borrow_book"><i class="fa-solid fa-book"></i></a>
         </div>
 
         <div class="user-box">
-          <p><a href="profile">My Profile</a></p>
+          <a class="btn" href="/profile/<?= auth()->id() ?>">My Profile</a>
+          <?php if ($isAdmin) : ?>
+            <a class="btn" href="/admin">Admin Page</a>
+          <?php endif; ?>
           <a href="logout" class="delete-btn">logout</a>
         </div>
       </div>

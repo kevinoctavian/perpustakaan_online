@@ -1,5 +1,6 @@
 <?php
 
+use CodeIgniter\I18n\Time;
 use Config\Auth;
 
 /** @var Auth $auth */
@@ -33,11 +34,28 @@ $auth = config('Auth');
     </form> -->
     <?php foreach ($books as $key) : ?>
       <div class="box">
-        <div class="image">
-          <img src="<?= base_url($key['cover']) ?>" alt="">
+        <div>
+
+          <div class="image">
+            <img src="<?= base_url($key['cover']) ?>" alt="">
+          </div>
+          <div class="name"><?= $key['title'] ?></div>
+          <div class="price"><?= $key['quantity'] ?></div>
+          <div class="details">
+            <p><?= $key['publisher'] ?></p>
+            <p><?= $key['author'] ?></p>
+          </div>
+          <div class="time">
+            <?php
+            $time = Time::parse($key['created_at']);
+            $humanize = $time->humanize();
+            ?>
+            <p><?= $humanize ?></p>
+          </div>
         </div>
-        <div class="name"><?= $key['title'] ?></div>
-        <div class="price"><?= $key['quantity'] ?></div>
+        <div class="buttons">
+          <a class="btn">Pinjam buku</a>
+        </div>
       </div>
     <?php endforeach; ?>
   </div>
