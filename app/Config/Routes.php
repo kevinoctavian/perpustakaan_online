@@ -18,6 +18,8 @@ $routes->group(
   }
 );
 
+$routes->get('profile', 'ProfileController::index');
+
 service('auth')->routes($routes, ['except' => ['login', 'register']]);
 
 /**
