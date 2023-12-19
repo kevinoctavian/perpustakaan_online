@@ -7,6 +7,8 @@ use CodeIgniter\API\ResponseTrait;
 
 use App\Models\UserModel;
 use CodeIgniter\Database\ResultInterface;
+use CodeIgniter\Shield\Entities\User;
+use CodeIgniter\Shield\Exceptions\ValidationException;
 
 class Users extends ResourceController
 {
@@ -51,6 +53,27 @@ class Users extends ResourceController
 
   public function create()
   {
+    // $groups = $this->request->getPost('group');
+
+    $allowedPostFields = [
+      'email', 'username',
+      'fullname', 'phone_number',
+      'password', 'gender'
+    ];
+    $user = new User();
+    $user->fill($this->request->getPost($allowedPostFields));
+
+    try {
+      $this->users->save($user);
+    } catch (ValidationException $th) {
+      return redirect()->back()->withInput()->with('errors', $this->users->errors());
+    }
+
+    $user = $this->users->findById($this->users->getInsertID());
+
+    $this->users->addToDefaultGroup($user);
+
+    return redirect()->to(base_url('admin/users'))->with('message', 'creating user successfully');
   }
 
   public function update($id = null)
@@ -83,6 +106,18 @@ class Users extends ResourceController
 
   public function delete($id = null)
   {
+
+    $this->users->delete($id, true);
+
+    $res = [
+      'status' => 200,
+      'message' => null,
+      'messages' => [
+        'success' => 'success delete'
+      ]
+    ];
+
+    return $this->respond($res);
   }
 
   private function getUserWithId($id): ResultInterface

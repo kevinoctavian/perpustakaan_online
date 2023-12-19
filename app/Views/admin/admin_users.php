@@ -74,7 +74,7 @@ $auth = config('Auth');
               <button type="button" class="btn btn-secondary my-2 my-md-0 mx-md-1" data-bs-toggle="modal" data-bs-target="#updatemodal">
                 Update User
               </button>
-              <button type="button" class="btn btn-danger my-2 my-md-0 mx-md-1" data-bs-toggle="modal" data-bs-target="#deletemodal">
+              <button type="button" id="deleteuser" class="btn btn-danger my-2 my-md-0 mx-md-1" data-userid=<?= $key['id'] ?>>
                 Delete User
               </button>
             </td>
@@ -134,12 +134,12 @@ $auth = config('Auth');
   <div class="modal fade" id="addmodal" tabindex="-1" aria-labelledby="addmodalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addmodalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="add-user">
+        <form id="add-user" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addmodalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
             <p class="text-danger">Perhatian! Email tidak dapat diubah setelah pembuatan</p>
             <div class="input-group mb-3">
               <input name="email" type="text" class="form-control" placeholder="type your email" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -171,12 +171,12 @@ $auth = config('Auth');
                 <label class="form-check-label" for="inlineRadio2">Perempuan</label>
               </div>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
-          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Buat Akun</button>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Buat Akun</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -185,24 +185,22 @@ $auth = config('Auth');
   <div class="modal fade" id="deletemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletemodalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <form action="">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deletemodalLabel">Are you sure to delete this user</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-header">
+          <h5 class="modal-title" id="deletemodalLabel">Are you sure to delete this user</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked id="deletepermanent">
+            <label class="form-check-label" for="flexCheckIndeterminate">
+              Delete Permanenly?
+            </label>
           </div>
-          <div class="modal-body">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-              <label class="form-check-label" for="flexCheckIndeterminate">
-                Delete Permanenly?
-              </label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-          </div>
-        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="deleteuser" type="button" class="btn btn-primary">I agree</button>
+        </div>
       </div>
     </div>
   </div>
@@ -213,4 +211,6 @@ $auth = config('Auth');
 
 <?= $this->section('pageScripts') ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="<?= base_url('js/admin_CRUD.js') ?>"></script>
 <?= $this->endSection() ?>
