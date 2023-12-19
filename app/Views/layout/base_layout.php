@@ -1,10 +1,15 @@
 <?php
 $user = auth()->user();
-$isAdmin = $user->inGroup(
-  'superadmin',
-  'admin',
-  'developer'
-);
+$isAdmin = false;
+
+if ($user) {
+  $isAdmin = $user->inGroup(
+    'superadmin',
+    'admin',
+    'developer'
+  );
+}
+
 ?>
 
 <!DOCTYPE html>
