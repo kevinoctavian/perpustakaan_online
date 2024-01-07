@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="<?= base_url('css/admin_style.css') ?>">
 
   <?= $this->renderSection('pageStyles') ?>
+  
+  <script>
+    const CURRENT_USER = <?= auth()->user()->id?>;
+    const CURRENT_BASE = '<?= base_url() ?>';
+  </script>
 
 </head>
 

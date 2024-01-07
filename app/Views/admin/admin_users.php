@@ -5,6 +5,7 @@ use Config\Auth;
 /** @var Auth $auth */
 $auth = config('Auth');
 
+$current_user = auth()->user()->id;
 ?>
 
 <?= $this->extend($auth->views['admin_layout']) ?>
@@ -71,10 +72,10 @@ $auth = config('Auth');
             </td>
             <td>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-secondary my-2 my-md-0 mx-md-1" data-bs-toggle="modal" data-bs-target="#updatemodal">
+              <button type="button" id='updateuser' data-userid=<?= $key['id'] ?> class="btn btn-info my-2 my-md-0 mx-md-1">
                 Update User
               </button>
-              <button type="button" id="deleteuser" class="btn btn-danger my-2 my-md-0 mx-md-1" data-userid=<?= $key['id'] ?>>
+              <button type="button" id="deleteuser" class="btn btn-<?= $key['id'] == $current_user ? 'secondary' : 'danger' ?> my-2 my-md-0 mx-md-1" data-userid=<?= $key['id'] ?> <?= $key['id'] != $current_user ? 'enable' : 'disable' ?>>
                 Delete User
               </button>
             </td>
@@ -90,10 +91,16 @@ $auth = config('Auth');
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="updatemodalLabel">Modal title</h5>
+          <br />
+          <p class="text-danger">*Jika tidak ingin ubah silahkan kosongkan</p>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="update-user">
+            <div class="input-group mb-3">
+              <input name="email" type="text" class="form-control" placeholder="type your email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+            </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">@</span>
               <input name="username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
@@ -124,7 +131,7 @@ $auth = config('Auth');
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
-          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Ubah</button>
+          <button id="submitchanges" type="button" class="btn btn-info">Ubah</button>
         </div>
       </div>
     </div>

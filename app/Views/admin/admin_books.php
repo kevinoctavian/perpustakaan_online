@@ -47,7 +47,7 @@ $auth = config('Auth');
               Update Book
             </button>
             <button type="button" class="btn btn-danger my-2 my-md-0 mx-md-1" data-bs-toggle="modal" data-bs-target="#deletemodal">
-              Update Book
+              Delete Book
             </button>
           </div>
         </div>

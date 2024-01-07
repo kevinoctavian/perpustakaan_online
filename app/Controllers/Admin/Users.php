@@ -9,6 +9,7 @@ use App\Models\UserModel;
 use CodeIgniter\Database\ResultInterface;
 use CodeIgniter\Shield\Entities\User;
 use CodeIgniter\Shield\Exceptions\ValidationException;
+use CodeIgniter\Shield\Models\UserIdentityModel;
 
 class Users extends ResourceController
 {
@@ -42,7 +43,9 @@ class Users extends ResourceController
   public function show($id = null)
   {
     $data = $this->getUserWithId($id)
-      ->getResult();
+      ->getResult('array');
+
+    $data[0]['email'] = $this->users->findById($id)->email;
 
     if ($data) {
       return $this->respond($data);
@@ -92,7 +95,10 @@ class Users extends ResourceController
       }
     }
 
-    $this->users->update($id, $data);
+    $user = $this->users->findById($id);
+    $user->fill($data);
+
+    $this->users->save($user);
     $res = [
       'status' => 200,
       'message' => null,
