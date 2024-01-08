@@ -10,6 +10,10 @@ $routes->get('about', 'AboutController::index');
 $routes->get('contact', 'ContactController::index');
 $routes->get('search', 'SearchController::index');
 
+$routes->get('borrow_book', 'BorrowBook::index');
+$routes->post('borrow_book/(:num)', 'BorrowBook::borrow/$1');
+$routes->post('borrow_book/(:num)/return', 'BorrowBook::returnBook/$1');
+
 $routes->group(
   'books',
   ['namespace' => '\App\Controllers\Books'],

@@ -37,7 +37,7 @@ $auth = config('Auth');
             <img src="<?= base_url($key['cover']) ?>" alt="">
           </div>
           <div class="name"><?= $key['title'] ?></div>
-          <div class="price"><?= $key['quantity'] ?></div>
+          <div class="price"><i class="fa-duotone fa-book-atlas"></i> <?= $key['quantity'] ?></div>
           <div class="details">
             <p><?= $key['publisher'] ?></p>
             <p><?= $key['author'] ?></p>
@@ -51,7 +51,9 @@ $auth = config('Auth');
           </div>
         </div>
         <div class="buttons">
-          <a class="btn">Pinjam buku</a>
+          <form action="<?= base_url('borrow_book/' . $key['book_id']) ?>" method="post">
+            <button type="submit" class="btn">Pinjam buku</button>
+          </form>
         </div>
       </div>
     <?php endforeach; ?>

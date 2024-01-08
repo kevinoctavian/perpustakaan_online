@@ -33,9 +33,14 @@ $auth = config('Auth');
     <?php if (count($search_books) !== 0) { ?>
       <?php foreach ($search_books as $book) : ?>
         <div class="box">
-          <div class="image"><img src="<?= base_url($book->cover) ?>" alt=""></div>
-          <div class="name"> <?= $book->title ?></div>
-          <div class="price"> <?= $book->quantity ?></div>
+          <div>
+            <div class="image"><img src="<?= base_url($book->cover) ?>" alt=""></div>
+            <div class="name"> <?= $book->title ?></div>
+            <div class="price"> <?= $book->quantity ?></div>
+          </div>
+          <div class="buttons">
+            <a class="btn">Pinjam buku</a>
+          </div>
         </div>
       <?php endforeach; ?>
       <!-- <form action="" method="post" class="box">

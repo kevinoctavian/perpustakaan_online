@@ -35,7 +35,7 @@ $auth = config('Auth');
 
 
     <div class="box">
-      <h3>0</h3>
+      <h3><?= $borrow_count ?></h3>
       <p>Total Books Borrowed</p>
     </div>
 

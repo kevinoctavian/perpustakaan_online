@@ -21,7 +21,7 @@ deleteUser.forEach((el) => {
         method: "DELETE",
       });
 
-      console.log(await data.json());
+      // console.log(await data.json());
       location.reload();
     }
   });
@@ -92,7 +92,7 @@ updateUser.forEach((el) => {
       });
 
       // console.log(data);
-      console.log(await data.json());
+      // console.log(await data.json());
 
       updateModal.hide();
       window.location.reload();

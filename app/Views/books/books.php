@@ -35,12 +35,11 @@ $auth = config('Auth');
     <?php foreach ($books as $key) : ?>
       <div class="box">
         <div>
-
           <div class="image">
             <img src="<?= base_url($key['cover']) ?>" alt="">
           </div>
           <div class="name"><?= $key['title'] ?></div>
-          <div class="price"><?= $key['quantity'] ?></div>
+          <div class="price"><i class="fa-duotone fa-book-atlas"></i> <?= $key['quantity'] ?></div>
           <div class="details">
             <p><?= $key['publisher'] ?></p>
             <p><?= $key['author'] ?></p>

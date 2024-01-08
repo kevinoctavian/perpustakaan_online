@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\BooksModel;
+use App\Models\BorrowBookModel;
 
 class AdminController extends BaseController
 {
@@ -11,10 +12,12 @@ class AdminController extends BaseController
   {
     /** @var BooksModel $books */
     $books = new BooksModel();
+    $borrow = new BorrowBookModel();
 
     $data = [
       'user_count' => auth()->getProvider()->countAllResults(),
       'book_count' => $books->countAllResults(),
+      'borrow_count' => $borrow->countAllResults()
     ];
 
 
